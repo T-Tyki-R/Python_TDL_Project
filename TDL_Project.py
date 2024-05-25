@@ -18,11 +18,14 @@ task_list = []
 task_stat = []
 
 def add_tasks():
-    pass
+    user_add = input("What task do you wish to add to the list? ").capitalize()
+    task_list.append(user_add)
+    task_stat.append(False) # <--- This will make the task have an automatic imcomplete status
 
 def rmv_tasks():
-    pass
-
+    user_dlt = input("What task do you wish to delete from the list? ").capitalize()
+    task_list.remove(user_dlt)
+    
 def completed_tasks():
     pass
 
@@ -38,10 +41,10 @@ while True:
     else:
         match user_choice: 
             case 1:      
-                # add_tasks()
+                add_tasks()
                 pass
             case 2:
-                #rmv_tasks()
+                rmv_tasks()
                 pass
             case 3:
                 # completed_tasks()  
