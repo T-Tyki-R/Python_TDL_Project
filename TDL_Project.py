@@ -27,10 +27,20 @@ def rmv_tasks():
     task_list.remove(user_dlt)
     
 def completed_tasks():
-    pass
+    user_task_fin = input("What task did you finish? ").capitalize()
+    if user_task_fin in task_list:
+        task_fin = task_list.index(user_task_fin)
+        task_stat[task_fin] = True 
+    else:
+        print(f"{user_task_fin} is not in the list of tasks.")
 
 def display_list():
-    pass
+    if len(task_list) == 0:
+        print("The list is empty")
+    else:
+        for i in range(len(task_list)):
+            stat = "Completed" if task_stat[i] else "Incomplete"
+            print(f"Task: {task_list[i]} -- {stat}")
 
 while True:
     print("\tMenu\n1. Add a Task\n2. Remove a Tasks\n3. Mark a Task as Complete\n4. Diplay List\n5. Quit\n What would you like to do?")
@@ -47,10 +57,10 @@ while True:
                 rmv_tasks()
                 pass
             case 3:
-                # completed_tasks()  
+                completed_tasks()  
                 pass                 
             case 4:
-                #display_list()
+                display_list()
                 pass
             case 5:
                 print("Thank you for using Task Management Pro. Have a great rest of your day!")
